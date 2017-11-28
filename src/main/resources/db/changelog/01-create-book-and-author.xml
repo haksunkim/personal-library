@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="01" author="haksunkim">
+        <createTable tableName="book"
+                     remarks="A table to contain all books">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="title" type="nvarchar(255)"/>
+            <column name="series" type="nvarchar(255)"/>
+            <column name="seriesVolumn" type="int"/>
+            <column name="details" type="clob"/>
+        </createTable>
+        <createTable tableName="author"
+                     remarks="A table to contain all author">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="nvarchar(255)"/>
+        </createTable>
+        <createTable tableName="book_author"
+                     remarks="A table to contain link between book and author">
+            <column name="book_id" type="int"/>
+            <column name="author_id" type="int"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
